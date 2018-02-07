@@ -1,54 +1,48 @@
-'use strict'
-
-type Item = (
+interface Result {
   // Misc
-  'console' |
-  'global' |
-  'process' |
-  'Buffer' |
+  console: boolean
+  global: boolean
+  process: boolean
+  Buffer: boolean
 
   // Modules
-  'assert' |
-  'async_hooks' |
-  'buffer' |
-  'child_process' |
-  'cluster' |
-  'constants' |
-  'crypto' |
-  'dgram' |
-  'dns' |
-  'domain' |
-  'events' |
-  'fs' |
-  'http' |
-  'http2' |
-  'https' |
-  'inspector' |
-  'module' |
-  'net' |
-  'os' |
-  'path' |
-  'perf_hooks' |
-  'punycode' |
-  'querystring' |
-  'readline' |
-  'repl' |
-  'stream' |
-  'string_decoder' |
-  'timers' |
-  'tls' |
-  'tty' |
-  'url' |
-  'util' |
-  'v8' |
-  'vm' |
-  'zlib'
-)
-
-interface Result {
-  [key: Item]: boolean
+  assert: boolean
+  async_hooks: boolean
+  buffer: boolean
+  child_process: boolean
+  cluster: boolean
+  constants: boolean
+  crypto: boolean
+  dgram: boolean
+  dns: boolean
+  domain: boolean
+  events: boolean
+  fs: boolean
+  http: boolean
+  http2: boolean
+  https: boolean
+  inspector: boolean
+  module: boolean
+  net: boolean
+  os: boolean
+  path: boolean
+  perf_hooks: boolean
+  punycode: boolean
+  querystring: boolean
+  readline: boolean
+  repl: boolean
+  stream: boolean
+  string_decoder: boolean
+  timers: boolean
+  tls: boolean
+  tty: boolean
+  url: boolean
+  util: boolean
+  v8: boolean
+  vm: boolean
+  zlib: boolean
 }
 
-declare function restrict (whitelist?: Item[]): Result
+declare function restrict (whitelist?: (keyof Result)[]): Result
 
 export = restrict
